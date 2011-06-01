@@ -15,13 +15,13 @@ define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVE
 </code>
 </pre>
 <p>3. Place encode_xml_helper.php in your application/helpers folder (or use your own xml encoder) if you plan on sending back xml.</p>
+<p>4. Place test.php in your application/controllers folder and  ajax_test_view.php in your application/views/test folder.</p>
 
 
 <h3>Basic Use</h3>
 <p>Example controller (test.php)</p>
 <pre>
 <code>
-<?php
 class Test extends CI_Controller
 {
 	function __construct()

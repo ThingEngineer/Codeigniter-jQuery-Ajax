@@ -74,7 +74,9 @@ class Ajax
 	function non_ajax($alert = TRUE)
 	{
 		if ( ! IS_AJAX && $alert === TRUE)
-		{		
+		{
+			$this->CI =& get_instance();
+		
 			$this->CI->output->set_status_header('403');
 			$this->CI->output->set_header("Content-Type: text/plain");
 			$this->CI->output->set_output('Invalid Request Origin');

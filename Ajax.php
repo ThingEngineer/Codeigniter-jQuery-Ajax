@@ -5,7 +5,7 @@
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Ajax
- * @author		Josh Campbell
+ * @author		Josh Campbell<josh.campbell@ajillion.com>
  * @link		https://github.com/ajillion/CodeIgniter-jQuery-Ajax
  */
 class Ajax

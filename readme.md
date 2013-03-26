@@ -81,7 +81,9 @@ function get_something()
 function get_something()
 {
 	$this->load->library('ajax');
-	if ($this->ajax->non_ajax()) return;	// Exit the controler if this is not an ajax request
+	if ($this->ajax->non_ajax(FALSE)) return;	// Exit the controler if this is not an ajax request
+	// Optionaly passing TRUE will output a 403 HTTP status code with a text/plain message reading "Invalid Request Origin"
+	// if ($this->ajax->non_ajax(TRUE)) return;	// Exit the controler if this is not an ajax request
 	
 	$arr['something'] = 'Something Good';
 
@@ -96,4 +98,4 @@ function get_something()
 </pre>
 
 
-<p>Tested with CodeIgniter 2.0.2</p>
+<p>Tested with CodeIgniter 2.1.3</p>

@@ -98,4 +98,4 @@ function get_something()
 </pre>
 
 
-<p>Tested with CodeIgniter 2.1.3</p>
+<p>Tested with CodeIgniter 2.2.0</p>

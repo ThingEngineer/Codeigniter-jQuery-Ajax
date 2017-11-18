@@ -24,30 +24,29 @@ define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVE
 <code>
 class Test extends CI_Controller
 {
-	function __construct()
-	{
-		parent::__construct();
+    function __construct()
+    {
+        parent::__construct();
+    }
 
-	}
+    function index()
+    {
+        $this->load->view('test/ajax_test_view');
+    }
 
-	function index()
-	{
-		$this->load->view('test/ajax_test_view');
-	}
+    function get_something()
+    {
+        $this->load->library('ajax');
 
-	function get_something()
-	{
-		$this->load->library('ajax');
+        $arr['something'] = 'Something Good';
 
-		$arr['something'] = 'Something Good';
+        if ($this->input->post('something_id') == '2')
+        {
+            $arr['something'] = 'Something Better';
+        }
 
-		if ($this->input->post('something_id') == '2')
-		{
-			$arr['something'] = 'Something Better';
-		}
-
-		$this->ajax->output_ajax($arr);
-	}
+        $this->ajax->output_ajax($arr);
+    }
 }
 </code>
 </pre>
@@ -61,16 +60,15 @@ class Test extends CI_Controller
 <code>
 function get_something()
 {
-	$this->load->library('ajax');
-
-	$arr['something'] = 'Something Good';
-
-	if ($this->input->post('something_id') == '2')
-	{
-		$arr['something'] = 'Something Better';
-	}
-
-	$this->ajax->output_ajax($arr, 'json', TRUE);	// Only send a response if this is an ajax request
+   $this->load->library('ajax');
+   $arr['something'] = 'Something Good';
+   
+   if ($this->input->post('something_id') == '2')
+   {
+      $arr['something'] = 'Something Better';
+   }
+   
+   $this->ajax->output_ajax($arr, 'json', TRUE);    // Only send a response if this is an ajax request
 }
 </code>
 </pre>
@@ -80,19 +78,19 @@ function get_something()
 <code>
 function get_something()
 {
-	$this->load->library('ajax');
-	if ($this->ajax->non_ajax(FALSE)) return;	// Exit the controler if this is not an ajax request
-	// Optionaly passing TRUE will output a 403 HTTP status code with a text/plain message reading "Invalid Request Origin"
-	// if ($this->ajax->non_ajax(TRUE)) return;	// Exit the controler if this is not an ajax request
-	
-	$arr['something'] = 'Something Good';
+   $this->load->library('ajax');
+   if ($this->ajax->non_ajax(FALSE)) return;   // Exit the controler if this is not an ajax request
+   // Optionaly passing TRUE will output a 403 HTTP status code with a text/plain message reading "Invalid Request Origin"
+   // if ($this->ajax->non_ajax(TRUE)) return; // Exit the controler if this is not an ajax request
 
-	if ($this->input->post('something_id') == '2')
-	{
-		$arr['something'] = 'Something Better';
-	}
+   $arr['something'] = 'Something Good';
 
-	$this->ajax->output_ajax($arr);
+   if ($this->input->post('something_id') == '2')
+   {
+       $arr['something'] = 'Something Better';
+   }
+
+   $this->ajax->output_ajax($arr);
 }
 </code>
 </pre>

@@ -95,5 +95,37 @@ function get_something()
 </code>
 </pre>
 
+<p>Example of an ajax request from a jquery script.</p>
+<code>
+<pre>
+function resetStatus() 
+{
+	// Target url
+	var target = 'http://mywebsite.com/ajax_controller';
+	
+	// Data to send in post request
+	var data = {
+		command : 'get_server_time'
+	};
+	
+	// Send ajax post request
+	$.ajax({
+		url: target,
+		dataType: 'json',
+		type: 'POST',
+		data: data,
+		success: function(data, textStatus, XMLHttpRequest)
+		{
+			$("#textbox").text(data.servertime);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown)
+		{
+			// Error message
+			$("#status").text('Server Error');
+		}
+	});
+ }
+</code>
+</pre>
 
 <p>Tested with CodeIgniter 2.2.0</p>

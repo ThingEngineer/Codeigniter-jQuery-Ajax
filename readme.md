@@ -96,12 +96,12 @@ function get_something()
 </pre>
 
 <p>Example of an ajax request from a jquery script.</p>
-<code>
 <pre>
-function resetStatus() 
+<code>
+function getServerTime() 
 {
 	// Target url
-	var target = 'http://mywebsite.com/ajax_controller';
+	var target = 'http://mywebsite.com/controller';
 	
 	// Data to send in post request
 	var data = {
@@ -116,7 +116,7 @@ function resetStatus()
 		data: data,
 		success: function(data, textStatus, XMLHttpRequest)
 		{
-			$("#textbox").text(data.servertime);
+			$("#server_time").text(data.server_time);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown)
 		{
